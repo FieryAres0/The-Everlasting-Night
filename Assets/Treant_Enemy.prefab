@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6204347126717775431}
   - component: {fileID: 6204347126717775430}
-  - component: {fileID: 6204347126717775429}
   - component: {fileID: 6204347126717775428}
   - component: {fileID: 6204347126717775435}
+  - component: {fileID: -7738601084583759748}
   m_Layer: 0
   m_Name: Treant_Enemy
   m_TagString: Untagged
@@ -85,22 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6204347126717775429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6204347126717775434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca59119ca0b39fe45905c271f602bffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  rb: {fileID: 6204347126717775428}
-  directionToTarget: {x: 0, y: 0, z: 0}
-  moveSpeed: 3
 --- !u!50 &6204347126717775428
 Rigidbody2D:
   serializedVersion: 4
@@ -148,3 +132,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6798084, y: 1.3146037}
   m_EdgeRadius: 0
+--- !u!114 &-7738601084583759748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204347126717775434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca59119ca0b39fe45905c271f602bffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rb: {fileID: 0}
+  directionToTarget: {x: 0, y: 0, z: 0}
+  moveSpeed: 3
