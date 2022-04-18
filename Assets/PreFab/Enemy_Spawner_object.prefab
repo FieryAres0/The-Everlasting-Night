@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8299799953754825441}
   m_Layer: 0
   m_Name: Enemy_Spawner_object
-  m_TagString: Enemy
+  m_TagString: Spawner
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 6204347126717775434, guid: 46417e5e19b98784b833812d9eaa897e, type: 3}
-  timer: 0
+  enemyCount: 0
+  maxSpawnAmount: 0

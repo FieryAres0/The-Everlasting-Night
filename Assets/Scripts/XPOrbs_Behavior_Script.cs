@@ -20,15 +20,18 @@ public class XPOrbs_Behavior_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceToTarget = Vector3.Distance (transform.position, target.transform.position);
+        distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
         directionToTarget = (target.transform.position - transform.position).normalized;
-        if (distanceToTarget < 5f) {
-            rb.velocity = new Vector2 (directionToTarget.x * moveSpeed, directionToTarget.y * moveSpeed);
+        if (distanceToTarget < 3f)
+        {
+            rb.velocity = new Vector2(directionToTarget.x * moveSpeed, directionToTarget.y * moveSpeed);
         }
     }
-    
-    void OnTriggerEnter2D (Collider2D other) {
-        if (other.gameObject.tag == "MainCharacter") {
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "MainCharacter")
+        {
             Destroy(this.gameObject);
         }
     }

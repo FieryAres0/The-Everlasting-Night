@@ -22,10 +22,16 @@ public class FillStatusBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (slider.value <= slider.minValue)
+        {
+            fillImage.enabled = false;
+        }
+        if (slider.value > slider.minValue && !fillImage.enabled)
         current = target.GetComponent<Player_HP_Script>().getHealth();
         max = target.GetComponent<Player_HP_Script>().getMaxHealth();
         
         float fillValue = current / max;
         slider.value = fillValue;
+        // slider.colors = Color;
     }
 }

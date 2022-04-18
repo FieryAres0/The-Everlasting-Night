@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player_HP_Script : MonoBehaviour
 {
-    private float playerMaxHP;
-    private float playerCurrentHP;
+    public float playerMaxHP;
+    public float playerCurrentHP;
     public Rigidbody2D rb;
     public float timer;
 
@@ -17,22 +17,23 @@ public class Player_HP_Script : MonoBehaviour
         playerCurrentHP = playerMaxHP;
     }
 
-    void Update() {
-    }
-
-    public void takeDamage(float damage) {
+    public void takeDamage(float damage)
+    {
         playerCurrentHP -= damage;
     }
 
-    public float getHealth() {
+    public float getHealth()
+    {
         return playerCurrentHP;
     }
 
-    public void setVelocity(int x, int y) {
-        rb.velocity = new Vector2(x , y);
+    public void setVelocity(int x, int y)
+    {
+        rb.velocity = new Vector2(x, y);
     }
 
-    public float getMaxHealth() {
+    public float getMaxHealth()
+    {
         return playerMaxHP;
     }
 }

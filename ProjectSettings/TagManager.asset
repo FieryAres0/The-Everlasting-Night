@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - MainCharacter
   - ExperienceOrb
+  - Spawner
   layers:
   - Default
   - TransparentFX
