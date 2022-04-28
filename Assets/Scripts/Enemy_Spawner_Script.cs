@@ -15,7 +15,6 @@ public class Enemy_Spawner_Script : MonoBehaviour
         enemyCount = 0f;
         maxSpawnAmount = 50f;
         timer = 0f;
-        Instantiate(objectToSpawn, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame

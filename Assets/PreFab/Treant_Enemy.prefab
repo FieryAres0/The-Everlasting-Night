@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6204347126717775428}
   - component: {fileID: 6204347126717775435}
   - component: {fileID: 3186058718123315376}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Treant_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -144,15 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca59119ca0b39fe45905c271f602bffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  weapon: {fileID: 0}
-  rb: {fileID: 6204347126717775428}
-  directionToTarget: {x: 0, y: 0, z: 0}
   moveSpeed: 3
-  damage: 0
-  maxHP: 0
-  currentHP: 0
   timer: 0
-  distanceToTarget: 0
   xpOrb: {fileID: 7926955861936081248, guid: 00763704422cdc94fb0ca270d9e6ed7d, type: 3}
-  playerHealth: {fileID: 0}

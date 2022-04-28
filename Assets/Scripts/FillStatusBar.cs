@@ -27,11 +27,13 @@ public class FillStatusBar : MonoBehaviour
             fillImage.enabled = false;
         }
         if (slider.value > slider.minValue && !fillImage.enabled)
+        {
+            fillImage.enabled = true;
+        }
         current = target.GetComponent<Player_HP_Script>().getHealth();
         max = target.GetComponent<Player_HP_Script>().getMaxHealth();
         
         float fillValue = current / max;
         slider.value = fillValue;
-        // slider.colors = Color;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy_Behavior_Script : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class Enemy_Behavior_Script : MonoBehaviour
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             rb.velocity = new Vector2(0f , 0f);
             this.gameObject.GetComponent<Enemy_Behavior_Script>().enabled = false;
+            SceneManager.LoadScene("GameOver");
         }
     }
 

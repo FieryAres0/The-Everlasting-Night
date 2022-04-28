@@ -8,6 +8,7 @@ public class Player_HP_Script : MonoBehaviour
     public float playerCurrentHP;
     public Rigidbody2D rb;
     public float timer;
+    public GameObject SceneChanger;
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +16,18 @@ public class Player_HP_Script : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         playerMaxHP = 100f;
         playerCurrentHP = playerMaxHP;
+        SceneChanger = GameObject.Find("SceneChanger");
     }
 
+
+    void Update()
+    {
+        if (playerCurrentHP < 1)
+        {
+            // SceneChanger.GetComponent<Scene_Changer>().ChangeScene("Game Over");
+        }
+    }
+    
     public void takeDamage(float damage)
     {
         playerCurrentHP -= damage;
