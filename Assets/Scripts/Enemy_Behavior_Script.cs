@@ -39,6 +39,7 @@ public class Enemy_Behavior_Script : MonoBehaviour
     }
 
     // Moves toward player
+    // If player health is 0, pause everything and switch to game over scene
     void moveCharacter()
     {
         if (target != null)
