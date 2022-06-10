@@ -447,6 +447,10 @@ PrefabInstance:
       propertyPath: transition
       value: 
       objectReference: {fileID: 410589700}
+    - target: {fileID: 8340366072848315890, guid: 43dd39e0197b93d41ba16eaa7fc8eadd, type: 3}
+      propertyPath: m_Alpha
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 8340366072848315891, guid: 43dd39e0197b93d41ba16eaa7fc8eadd, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
@@ -773,7 +777,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Title Screen
+          m_StringArgument: TitleScreen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1306226968

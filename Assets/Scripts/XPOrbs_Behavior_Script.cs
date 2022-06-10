@@ -9,10 +9,12 @@ public class XPOrbs_Behavior_Script : MonoBehaviour
     public Vector3 directionToTarget;
     private Rigidbody2D rb;
     public float moveSpeed;
+    public float amount;
 
     // Start is called before the first frame update
     void Start()
     {
+        amount = 2f;
         target = GameObject.Find("Player");
         rb = this.GetComponent<Rigidbody2D>();
     }
@@ -28,11 +30,17 @@ public class XPOrbs_Behavior_Script : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "MainCharacter")
         {
+            target.GetComponent<Player_Main_Script>().increasesXP(amount);
             Destroy(this.gameObject);
         }
+    }
+
+    public float returnXP()
+    {
+        return amount;
     }
 }

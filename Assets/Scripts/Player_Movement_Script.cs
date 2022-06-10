@@ -10,6 +10,7 @@ public class Player_Movement_Script : MonoBehaviour
     public InputAction playerControls;
     Vector2 moveDirection = Vector2.zero;
 
+    
     private void OnEnable()
     {
         playerControls.Enable();
@@ -20,22 +21,9 @@ public class Player_Movement_Script : MonoBehaviour
         playerControls.Disable();
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        moveDirection = playerControls.ReadValue<Vector2>();
-    }
-
-    // Update is called on a fixed interval, default 50 per second
-    private void FixedUpdate()
-    {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        moveDirection = playerControls.ReadValue<Vector2>();
     }
 }

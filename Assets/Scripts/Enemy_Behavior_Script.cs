@@ -7,7 +7,6 @@ public class Enemy_Behavior_Script : MonoBehaviour
 {
     private GameObject target;
     private GameObject weapon;
-    private GameObject spawner;
     private Rigidbody2D rb;
     private Vector3 directionToTarget;
     public float moveSpeed = 3f;
@@ -19,12 +18,13 @@ public class Enemy_Behavior_Script : MonoBehaviour
     public GameObject xpOrb;
 
     // Start is called before the first frame update
+    // Assigning variables and GameObject
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         target = GameObject.Find("Player");
         weapon = GameObject.Find("Weapon");
-        maxHP = 10f;
+        maxHP = 10f * Mathf.Pow(1.05f, target.GetComponent<Player_Main_Script>().getLevel());
         currentHP = maxHP;
         damage = weapon.GetComponent<Weapon_Boomerang_Script>().getDamage();
     }
@@ -32,14 +32,15 @@ public class Enemy_Behavior_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        damage = weapon.GetComponent<Weapon_Boomerang_Script>().getDamage();
         distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
         timer += Time.deltaTime;
         moveCharacter();
         offscreenChecker();
     }
 
-    // Moves toward player
-    // If player health is 0, pause everything and switch to game over scene
+    // Determine's player position and move towards them
+    // If player health is 0, pause everything and switch to Game Over scene
     void moveCharacter()
     {
         if (target != null)
@@ -47,10 +48,8 @@ public class Enemy_Behavior_Script : MonoBehaviour
             directionToTarget = (target.transform.position - transform.position).normalized;
             rb.velocity = new Vector2(directionToTarget.x * moveSpeed, directionToTarget.y * moveSpeed);
         }
-        if (target.GetComponent<Player_HP_Script>().playerCurrentHP <= 0)
+        if (target.GetComponent<Player_Main_Script>().getCurrentHealth() <= 0)
         {
-            target.GetComponent<Player_Movement_Script>().enabled = false;
-            target.GetComponent<Player_HP_Script>().setVelocity(0, 0);
             GameObject weapon = GameObject.Find("Weapon");
             weapon.GetComponent<Weapon_Boomerang_Script>().enabled = false;
             weapon.GetComponentInParent<Pivot_Behavior_Script>().enabled = false;
@@ -68,7 +67,7 @@ public class Enemy_Behavior_Script : MonoBehaviour
     // Detects collision with weapon
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Weapon")
+        if (other.gameObject.tag.Equals("Weapon"))
         {
             currentHP -= damage;
             if (currentHP < 1)
@@ -79,25 +78,25 @@ public class Enemy_Behavior_Script : MonoBehaviour
         }
     }
 
-    // Detects collision with player
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "MainCharacter")
-        {
-            if (timer > 0.5f && target.GetComponent<Player_HP_Script>().getHealth() > 0f)
-            {
-                target.GetComponent<Player_HP_Script>().takeDamage(1f);
-                timer = 0f;
-            }
-        }
-    }
-
     // Check if enemy is far away, delete them if they are
     void offscreenChecker()
     {
-        if (distanceToTarget > 25f)
+        if (distanceToTarget > 40f)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    // check if collide with player, deal damage collided
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals("MainCharacter"))
+        {
+            if (timer > 0.5f && target.GetComponent<Player_Main_Script>().getCurrentHealth() > 0f)
+            {
+                target.GetComponent<Player_Main_Script>().takeDamage(1f);
+                timer = 0f;
+            }
         }
     }
 }

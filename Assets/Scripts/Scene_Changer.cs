@@ -7,6 +7,7 @@ public class Scene_Changer : MonoBehaviour
 {
     public Animator transition;
     public GameObject pauseTab;
+    public GameObject ShopUI;
     private Scene currentScene;
 
     public float transitionTime = 1f;
@@ -18,6 +19,8 @@ public class Scene_Changer : MonoBehaviour
         {
             pauseTab = GameObject.Find("PauseTab");
             pauseTab.SetActive(false);
+            ShopUI = GameObject.Find("Shop");
+            ShopUI.SetActive(false);
         }
     }
 
@@ -26,6 +29,7 @@ public class Scene_Changer : MonoBehaviour
         Application.Quit();
     }
     
+    //Transition from scene to scene
     IEnumerator ChangeSceneWTransition(string sceneName)
     {
         transition.SetTrigger("Start");
@@ -41,15 +45,31 @@ public class Scene_Changer : MonoBehaviour
         StartCoroutine(ChangeSceneWTransition(sceneName));
     }
 
+    //Pause and unpause game
     public void PauseGame()
     {
-        pauseTab.SetActive(true);
-        Time.timeScale = 0;
+        if (!pauseTab.activeInHierarchy)
+        {
+            pauseTab.SetActive(true);
+            Time.timeScale = 0;
+        } else if (pauseTab.activeInHierarchy)
+        {
+            pauseTab.SetActive(false);
+        Time.timeScale = 1;
+        }  
     }
 
-    public void UnpauseGame()
+    //Open up shop menu
+    public void ToggleShop()
     {
-        pauseTab.SetActive(false);
+        if (!ShopUI.activeInHierarchy)
+        {
+            ShopUI.SetActive(true);
+            Time.timeScale = 0;
+        } else if (ShopUI.activeInHierarchy)
+        {
+            ShopUI.SetActive(false);
         Time.timeScale = 1;
+        }  
     }
 }

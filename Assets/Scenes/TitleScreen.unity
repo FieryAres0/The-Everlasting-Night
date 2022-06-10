@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 1003094333}
+  pauseTab: {fileID: 0}
   transitionTime: 1
 --- !u!1 &751322333
 GameObject:
@@ -1053,14 +1054,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8340366072848315890, guid: 43dd39e0197b93d41ba16eaa7fc8eadd, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8340366072848315891, guid: 43dd39e0197b93d41ba16eaa7fc8eadd, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340366072848315892, guid: 43dd39e0197b93d41ba16eaa7fc8eadd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8340366074710101799, guid: 43dd39e0197b93d41ba16eaa7fc8eadd, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 268529667}
+    - target: {fileID: 8340366074710101799, guid: 43dd39e0197b93d41ba16eaa7fc8eadd, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340366074710101799, guid: 43dd39e0197b93d41ba16eaa7fc8eadd, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8340366074710101848, guid: 43dd39e0197b93d41ba16eaa7fc8eadd, type: 3}
       propertyPath: m_UiScaleMode
       value: 1

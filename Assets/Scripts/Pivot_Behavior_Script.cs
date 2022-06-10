@@ -28,6 +28,7 @@ public class Pivot_Behavior_Script : MonoBehaviour
 
     }
 
+    // Follows the player
     void moveCharacter()
     {
         if (target != null)

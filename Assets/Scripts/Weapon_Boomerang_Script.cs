@@ -21,4 +21,9 @@ public class Weapon_Boomerang_Script : MonoBehaviour
     public float getDamage() {
         return damage;
     }
+
+    public void increaseDamage(float amount)
+    {
+        damage += amount;
+    }
 }
